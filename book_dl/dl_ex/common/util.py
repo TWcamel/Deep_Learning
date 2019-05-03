@@ -41,15 +41,15 @@ def im2col(input_data, filter_h, filter_w, stride=1, pad=0):
 
     Parameters
     ----------
-    input_data : (データ数, チャンネル, 高さ, 幅)の4次元配列からなる入力データ
-    filter_h : フィルターの高さ
-    filter_w : フィルターの幅
-    stride : ストライド
-    pad : パディング
+    input_data : 由(資料數量、色板、高度、寬度)的四維陣列形成的輸入資料
+    filter_h : 濾鏡的高度
+    filter_w : 濾鏡的寬度
+    stride : 步幅
+    pad : 填補
 
     Returns
     -------
-    col : 2次元配列
+    col : 2次元陣列
     """
     N, C, H, W = input_data.shape
     out_h = (H + 2*pad - filter_h)//stride + 1
