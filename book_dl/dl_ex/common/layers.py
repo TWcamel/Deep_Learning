@@ -44,12 +44,12 @@ class Affine:
         
         self.x = None
         self.original_x_shape = None
-        # 重み・バイアスパラメータの微分
+        # 權重和偏差參數的微分
         self.dW = None
         self.db = None
 
     def forward(self, x):
-        # テンソル対応
+        # Tensor 兼容
         self.original_x_shape = x.shape
         x = x.reshape(x.shape[0], -1)
         self.x = x
@@ -63,7 +63,7 @@ class Affine:
         self.dW = np.dot(self.x.T, dout)
         self.db = np.sum(dout, axis=0)
         
-        dx = dx.reshape(*self.original_x_shape)  # 入力データの形状に戻す（テンソル対応）
+        dx = dx.reshape(*self.original_x_shape)  # 恢復輸入數據的形狀（兼容Tensor）
         return dx
 
 
